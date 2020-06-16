@@ -1,8 +1,14 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int read_knots (const int KNOTS);
+
 int main()
 {
     const int KNOTS(15);
     const int MATCHS(10);
-    int * array;
+    int * array;g
     int number_of_knots(1);
     int player(1);
     int knot_chosen;
@@ -48,3 +54,17 @@ int main()
     delete [] array;
     return 0;
 }
+
+int read_knots (const int KNOTS)
+{
+    int knots;
+    cout<<"Сколько кучек в этой игре? ";
+    cin>>knots;
+    while (knots<1 || knots>KNOTS)
+    {
+        cout<<"Количество кучек должно быть положительным и меньше или равно"<<KNOTS<<endl;
+        cout<<"Введите количество стержней: ";
+        cin>>knots;
+    }
+    cout<<endl;
+    return (knots);
