@@ -17,6 +17,7 @@ void validate_knot (int player,int & knot_chosen,int size);
 void validate_knot1 (int array[],int player,int & knot_chosen);
 int numofmatchs_to_remove (int matchs,int knot_chosen);
 void validate_matchs (int array[],int knot_chosen,int & matchs_removed,int matchs);
+void move_matchs (int array[],int knot_chosen,int matchs_removed);
 
 int main()
 {
@@ -331,4 +332,12 @@ void validate_matchs (int array[],int knot_chosen,int & matchs_removed,int match
         }
         matchs_removed=numofmatchs_to_remove (array[knot_chosen],knot_chosen);
     }
+}
+
+/*
+Эта функция изменяет массив стержней, вычитая указанное количество спичек из выбранной кучки.
+*/
+void move_matchs (int array[],int knot_chosen,int matchs_removed)
+{
+    array[knot_chosen]=array[knot_chosen]-matchs_removed;
 }
