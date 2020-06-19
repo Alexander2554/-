@@ -16,6 +16,7 @@ int choose_knot (int player);
 void validate_knot (int player,int & knot_chosen,int size);
 void validate_knot1 (int array[],int player,int & knot_chosen);
 int numofmatchs_to_remove (int matchs,int knot_chosen);
+void validate_matchs (int array[],int knot_chosen,int & matchs_removed,int matchs);
 
 int main()
 {
@@ -311,4 +312,23 @@ int numofmatchs_to_remove (int matchs,int knot_chosen)
     cout<<"Введите количество спичек для удаления ("<<matchs<<" или меньше) от кучки "<<knot_chosen<<": ";
     cin>>num;
     return (num);
+}
+
+/*
+Эта функция проверяет, является ли число удаляемых объектов положительным и не превышает ли оно число объектов на выбранном стержне.
+*/
+void validate_matchs (int array[],int knot_chosen,int & matchs_removed,int matchs)
+{
+    while(matchs_removed<1||matchs_removed>matchs)
+    {
+        if(matchs_removed<1)
+        {
+            cout<<"Количество спичек, которые вы можете удалить, должно быть положительным. Пробовать снова."<<endl;
+        }
+        if(matchs_removed>matchs)
+        {
+            cout<<"Можно удалить только до"<<matchs<<" спичек. Пожалуйста, попробуйте еще раз."<<endl;
+        }
+        matchs_removed=numofmatchs_to_remove (array[knot_chosen],knot_chosen);
+    }
 }
