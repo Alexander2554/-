@@ -4,11 +4,12 @@ using namespace std;
 
 int read_knots (const int KNOTS);
 void procedure (int array[],int size,const int MATCHS);
+void draw_knots (int array[],int size);
 
 int main()
 {
     const int KNOTS(15);
-    const int MATCHS(10);
+    const int MATCHS(10); 
     int * array;g
     int number_of_knots(1);
     int player(1);
@@ -93,3 +94,20 @@ void procedure (int array[],int size,const int MATCHS)
     }
 }
 
+/*
+Эта функция вычисляет общее количество спичек в массиве кучек, пересекает массив кучек и вызывает вспомогательную процедуру для отображения каждой полной строки.
+*/
+void draw_knots (int array[],int size)
+{
+    int sum(0);
+    for (int i=0;i<size;i++)
+    {
+        sum=sum+array[i];
+    }
+    cout<<endl;
+    for (int i=0;i<size;i++)
+    {
+        draw_knots1 (i,array[i],sum);
+    }
+    cout<<endl;
+}
