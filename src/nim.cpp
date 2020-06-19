@@ -8,6 +8,7 @@ void draw_knots (int array[],int size);
 void draw_knots1(int array_index,int number_of_matchs,int sum);
 void statistics (int array[],int size);
 void smallest (int array[],int size);
+void largest (int array[],int size);
 
 int main()
 {
@@ -174,6 +175,28 @@ void smallest (int array[],int size)
         if (array[i]==smallest)
         {
             cout<<"Кучка "<<i<<" имеет наименьшее количество объектов с "<<smallest<<" спичек."<<endl;
+        }
+    }
+}
+
+/*
+Эта функция отображает стержни с наибольшим количеством объектов.
+*/
+void largest (int array[],int size)
+{
+    int largest=array[0];
+    for (int i=1;i<size;i++)
+    {
+        if (array[i]>largest)
+        {
+            largest=array[i];
+        }
+    }
+    for (int i=0;i<size;i++)
+    {
+        if (array[i]==largest)
+        {
+            cout<<"Кучка "<<i<<" имеет наибольшее количество объектов с"<<largest<<" спичек."<<endl;
         }
     }
 }
