@@ -7,6 +7,7 @@ void procedure (int array[],int size,const int MATCHS);
 void draw_knots (int array[],int size);
 void draw_knots1(int array_index,int number_of_matchs,int sum);
 void statistics (int array[],int size);
+void smallest (int array[],int size);
 
 int main()
 {
@@ -143,4 +144,36 @@ void statistics (int array[],int size)
     largest (array,size);
     average (array,size);
     cout<<endl;
+}
+
+/*
+Эта функция отображает стержни с наименьшим количеством объектов.
+*/
+void smallest (int array[],int size)
+{
+    int smallest=array[0];
+    if (array[0]==0)
+    {
+        for (int i=1;i<size;i++)
+        {
+            if (array[i]!=0)
+            {
+                smallest=array[i];
+            }
+        }
+    }
+    for (int i=1;i<size;i++)
+    {
+        if (array[i]!=0 && array[i]<smallest)
+        {
+            smallest=array[i];
+        }
+    }
+    for (int i=0;i<size;i++)
+    {
+        if (array[i]==smallest)
+        {
+            cout<<"Кучка "<<i<<" имеет наименьшее количество объектов с "<<smallest<<" спичек."<<endl;
+        }
+    }
 }
