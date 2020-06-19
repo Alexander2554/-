@@ -3,6 +3,7 @@
 using namespace std;
 
 int read_knots (const int KNOTS);
+void procedure (int array[],int size,const int MATCHS);
 
 int main()
 {
@@ -68,3 +69,27 @@ int read_knots (const int KNOTS)
     }
     cout<<endl;
     return (knots);
+
+/*
+Эта функция запрашивает у пользователя количество спичек для размещения в этой кучки и проверяет, находится ли количество спичек, введенных для кучки, в диапазоне от 1 до максимального разрешенного количества объектов.
+array [] - это массив кучек.
+size-это размер массива.
+MATCHS-это максимальное количество спичек на стержень.
+*/
+void procedure (int array[],int size,const int MATCHS)
+{
+    int n;
+    for (int i=0;i<size;i++)
+    {
+        cout<<"Сколько спичек находится в кучке"<<i<<": ";
+        cin>>n;
+        while (n<1||n>MATCHS)
+        {
+            cout<<"Извините, количество спичек должно быть положительным и меньше или равно "<<MATCHS<<"."<<endl;
+            cout<<"Сколько объектов находится на стержне "<<i<<": ";
+            cin>>n;
+        }
+        array[i]=n;
+    }
+}
+
