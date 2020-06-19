@@ -19,6 +19,7 @@ int numofmatchs_to_remove (int matchs,int knot_chosen);
 void validate_matchs (int array[],int knot_chosen,int & matchs_removed,int matchs);
 void move_matchs (int array[],int knot_chosen,int matchs_removed);
 void congrats (int player);
+void switch_the_turn (int & player);
 
 int main()
 {
@@ -350,4 +351,19 @@ void congrats (int player)
 {
     cout<<endl;
     cout<<"Поздравляю! Игрок "<<player<<" выиграл."<<endl;
+}
+
+/*
+Эта функция переключает поворот на другого игрока.
+*/
+void switch_the_turn (int & player)
+{
+    if(player==1)
+    {
+        player=2;
+    }
+    else
+    {
+        player=1;
+    }
 }
