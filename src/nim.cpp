@@ -5,6 +5,7 @@ using namespace std;
 int read_knots (const int KNOTS);
 void procedure (int array[],int size,const int MATCHS);
 void draw_knots (int array[],int size);
+void draw_knots1(int array_index,int number_of_matchs,int sum);
 
 int main()
 {
@@ -110,4 +111,21 @@ void draw_knots (int array[],int size)
         draw_knots1 (i,array[i],sum);
     }
     cout<<endl;
+}
+
+/*
+Эта функция отображает каждую полную строку.
+индекс_массива-индекс массива для такого удилища.
+number_of_matchs - это количество спичек для данной кучки.
+сумма - это общее количество спичек в массиве кучек.
+*/
+void draw_knots1(int array_index,int number_of_matchs,int sum)
+{
+    cout<<"Кучка "<<setw(3)<<array_index<<": ";
+    for (int x=0;x<number_of_matchs;x++)
+    {
+        cout<<"#";
+    }
+    double percentage=number_of_matchs*100.00/sum;
+    cout<<setw(16-number_of_matchs)<<"("<<fixed<<setprecision(3)<<percentage<<"%)"<<endl;
 }
