@@ -12,6 +12,7 @@ void largest (int array[],int size);
 void average (int array[],int size);
 bool all_zero (const int array[],int size);
 void next_move (int array[],int size,int player,int & knot_chosen,int & matchs_removed);
+int choose_knot (int player);
 
 int main()
 {
@@ -261,4 +262,15 @@ void next_move (int array[],int size,int player,int & knot_chosen,int & matchs_r
     validate_knot1 (array,player,knot_chosen);
     matchs_removed=numofmatchs_to_remove (array[knot_chosen],knot_chosen);
     validate_matchs (array,knot_chosen,matchs_removed,array[knot_chosen]);
+}
+
+/*
+Эта функция предлагает игроку выбрать кучку (идентификатор кучки), а затем возвращает это значение.
+*/
+int choose_knot (int player)
+{
+    int knot_id;
+    cout<<"Игрок ("<<player<<") :На какой кучки вы хотели бы играть? ";
+    cin>>knot_id;
+    return (knot_id);
 }
