@@ -10,6 +10,7 @@ void statistics (int array[],int size);
 void smallest (int array[],int size);
 void largest (int array[],int size);
 void average (int array[],int size);
+bool all_zero (const int array[],int size);
 
 int main()
 {
@@ -219,4 +220,32 @@ void average (int array[],int size)
     }
     double average=sum*1.00/knots_with_object;
     cout<<"Среднее число спичек в кучке (т. е. кучки с спичками) равно"<<fixed<<setprecision(2)<<average<<" спичек."<<endl;
+}
+
+/*
+Эта функция возвращает true, если все стержни имеют нулевой объект, и возвращает false в противном случае.
+*/
+bool all_zero (const int array[],int size)
+{
+    bool zero=true;
+    int knots_without_matchs(0);
+    for (int i=0;i<size;i++)
+    {
+        if (array[i]==0)
+        {
+            knots_without_matchs++;
+        }
+    }
+    if (knots_without_matchs!=size)
+    {
+        zero=false;
+    }
+    if (zero)
+    {
+        return (true);
+    }
+    else
+    {
+        return (false);
+    }
 }
