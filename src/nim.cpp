@@ -11,6 +11,7 @@ void smallest (int array[],int size);
 void largest (int array[],int size);
 void average (int array[],int size);
 bool all_zero (const int array[],int size);
+void next_move (int array[],int size,int player,int & knot_chosen,int & matchs_removed);
 
 int main()
 {
@@ -248,4 +249,16 @@ bool all_zero (const int array[],int size)
     {
         return (false);
     }
+}
+
+/*
+Эта функция реализует шаг (vi) алгоритма, на котором текущий игрок делает свой следующий ход.
+*/
+void next_move (int array[],int size,int player,int & knot_chosen,int & matchs_removed)
+{
+    knot_chosen=choose_knot (player);
+    validate_knot (player,knot_chosen,size);
+    validate_knot1 (array,player,knot_chosen);
+    matchs_removed=numofmatchs_to_remove (array[knot_chosen],knot_chosen);
+    validate_matchs (array,knot_chosen,matchs_removed,array[knot_chosen]);
 }
