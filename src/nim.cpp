@@ -14,7 +14,7 @@ bool all_zero (const int array[],int size);
 void next_move (int array[],int size,int player,int & knot_chosen,int & matchs_removed);
 int choose_knot (int player);
 void validate_knot (int player,int & knot_chosen,int size);
-
+void validate_knot1 (int array[],int player,int & knot_chosen);
 
 int main()
 {
@@ -285,6 +285,18 @@ void validate_knot (int player,int & knot_chosen,int size)
     while(knot_chosen<0||knot_chosen>size-1)
     {
         cout<<"Неверный номер кучки. Пожалуйста, попробуйте еще раз."<<endl;
+        knot_chosen=choose_knot (player);
+    }
+}
+
+/*
+Эта функция проверяет, есть ли у выбранного стержня хотя бы один объект.
+*/
+void validate_knot1 (int array[],int player,int & knot_chosen)
+{
+    while(array[knot_chosen]==0)
+    {
+        cout<<"Кучка "<<knot_chosen<<" имеет ноль спичек. Пожалуйста, выберите другую кучку."<<endl;
         knot_chosen=choose_knot (player);
     }
 }
