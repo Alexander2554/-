@@ -9,6 +9,7 @@ void draw_knots1(int array_index,int number_of_matchs,int sum);
 void statistics (int array[],int size);
 void smallest (int array[],int size);
 void largest (int array[],int size);
+void average (int array[],int size);
 
 int main()
 {
@@ -199,4 +200,23 @@ void largest (int array[],int size)
             cout<<"Кучка "<<i<<" имеет наибольшее количество объектов с"<<largest<<" спичек."<<endl;
         }
     }
+}
+
+/*
+Эта функция отображает среднее количество объектов на стержень с учетом только стержней с объектами.
+*/
+void average (int array[],int size)
+{
+    int sum(0);
+    int knots_with_object(0);
+    for (int i=0;i<size;i++)
+    {
+        if (array[i]!=0)
+        {
+            sum=sum+array[i];
+            knots_with_object++;
+        }
+    }
+    double average=sum*1.00/knots_with_object;
+    cout<<"Среднее число спичек в кучке (т. е. кучки с спичками) равно"<<fixed<<setprecision(2)<<average<<" спичек."<<endl;
 }
