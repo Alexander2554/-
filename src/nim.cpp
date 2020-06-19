@@ -13,6 +13,8 @@ void average (int array[],int size);
 bool all_zero (const int array[],int size);
 void next_move (int array[],int size,int player,int & knot_chosen,int & matchs_removed);
 int choose_knot (int player);
+void validate_knot (int player,int & knot_chosen,int size);
+
 
 int main()
 {
@@ -273,4 +275,16 @@ int choose_knot (int player)
     cout<<"Игрок ("<<player<<") :На какой кучки вы хотели бы играть? ";
     cin>>knot_id;
     return (knot_id);
+}
+
+/*
+Эта функция проверяет кучку, выбранный этим игроком, т. е. выбранная качка должен находиться в диапазоне от 0 до n-1, где n-общее количество кучек.
+*/
+void validate_knot (int player,int & knot_chosen,int size)
+{
+    while(knot_chosen<0||knot_chosen>size-1)
+    {
+        cout<<"Неверный номер кучки. Пожалуйста, попробуйте еще раз."<<endl;
+        knot_chosen=choose_knot (player);
+    }
 }
