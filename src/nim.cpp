@@ -15,6 +15,7 @@ void next_move (int array[],int size,int player,int & knot_chosen,int & matchs_r
 int choose_knot (int player);
 void validate_knot (int player,int & knot_chosen,int size);
 void validate_knot1 (int array[],int player,int & knot_chosen);
+int numofmatchs_to_remove (int matchs,int knot_chosen);
 
 int main()
 {
@@ -299,4 +300,15 @@ void validate_knot1 (int array[],int player,int & knot_chosen)
         cout<<"Кучка "<<knot_chosen<<" имеет ноль спичек. Пожалуйста, выберите другую кучку."<<endl;
         knot_chosen=choose_knot (player);
     }
+}
+
+/*
+Эта функция запрашивает и считывает, сколько объектов нужно удалить из выбранного стержня.
+*/
+int numofmatchs_to_remove (int matchs,int knot_chosen)
+{
+    int num;
+    cout<<"Введите количество спичек для удаления ("<<matchs<<" или меньше) от кучки "<<knot_chosen<<": ";
+    cin>>num;
+    return (num);
 }
