@@ -6,6 +6,7 @@ int read_knots (const int KNOTS);
 void procedure (int array[],int size,const int MATCHS);
 void draw_knots (int array[],int size);
 void draw_knots1(int array_index,int number_of_matchs,int sum);
+void statistics (int array[],int size);
 
 int main()
 {
@@ -128,4 +129,18 @@ void draw_knots1(int array_index,int number_of_matchs,int sum)
     }
     double percentage=number_of_matchs*100.00/sum;
     cout<<setw(16-number_of_matchs)<<"("<<fixed<<setprecision(3)<<percentage<<"%)"<<endl;
+}
+
+/*
+Эта функция отображает статистику для списка кучек
+Статистика состоит из 1) кучек с наименьшим количеством спичек, 2) кучек с наибольшим количеством спичек и 3) среднего количества спичек в кучки с учетом только кучек с спичками.
+size-это размер массива.
+MATCHS-это максимальное количество спичек на стержень.
+*/
+void statistics (int array[],int size)
+{
+    smallest (array,size);
+    largest (array,size);
+    average (array,size);
+    cout<<endl;
 }
