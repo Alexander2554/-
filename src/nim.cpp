@@ -18,6 +18,7 @@ void validate_knot1 (int array[],int player,int & knot_chosen);
 int numofmatchs_to_remove (int matchs,int knot_chosen);
 void validate_matchs (int array[],int knot_chosen,int & matchs_removed,int matchs);
 void move_matchs (int array[],int knot_chosen,int matchs_removed);
+void congrats (int player);
 
 int main()
 {
@@ -340,4 +341,13 @@ void validate_matchs (int array[],int knot_chosen,int & matchs_removed,int match
 void move_matchs (int array[],int knot_chosen,int matchs_removed)
 {
     array[knot_chosen]=array[knot_chosen]-matchs_removed;
+}
+
+/*
+Эта функция выводит сообщение, поздравляющее победившего игрока.
+*/
+void congrats (int player)
+{
+    cout<<endl;
+    cout<<"Поздравляю! Игрок "<<player<<" выиграл."<<endl;
 }
