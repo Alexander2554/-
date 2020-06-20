@@ -1,14 +1,18 @@
 #include <iomanip>
 #include <iostream>
 using namespace std;
-
+#include "allzero.hpp"
+#include "congrats.hpp"
+#include "readknots.hpp"
+#include "statistics.hpp"
+#include "validateknot1.hpp"
 
 int main()
 {
     const int KNOTS(15);
     const int MATCHS(10);
     int* array;
-    g int number_of_knots(1);
+    int number_of_knots(1);
     int player(1);
     int knot_chosen;
     int matchs_removed;
