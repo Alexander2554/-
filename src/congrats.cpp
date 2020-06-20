@@ -10,8 +10,8 @@ void congrats(int player)
 
 /*
 Эта функция переключает поворот на другого игрока.
-*/S
-void switch_the_turn(int& player)
+*/
+S void switch_the_turn(int& player)
 {
     if (player == 1) {
         player = 2;
